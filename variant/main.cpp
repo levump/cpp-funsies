@@ -8,7 +8,7 @@
 
 class cat{
 	std::string name;
-public:
+	public:
 	explicit cat(std::string n)
 		: name{std::move(n)}
 	{}
@@ -22,7 +22,7 @@ public:
 class snek
 {
 	std::string name;
-public:
+	public:
 	explicit snek(std::string n )
 		: name{std::move(n)}
 	{}
@@ -39,7 +39,7 @@ class dog
 {
 	std::string name;
 
-public:
+	public:
 	explicit dog(std::string n)
 		: name {std::move(n)}
 	{}
@@ -55,14 +55,14 @@ class chicken
 	std::string name;
 
 	public:
-		explicit chicken(std::string n)
-			: name{std::move(n)}
-		{}
+	explicit chicken(std::string n)
+		: name{std::move(n)}
+	{}
 
-		void say() const
-		{
-			std::cout << name << " says chip-chip-chip!" << std::endl;
-		}
+	void say() const
+	{
+		std::cout << name << " says chip-chip-chip!" << std::endl;
+	}
 
 
 };
@@ -70,7 +70,7 @@ class chicken
 class fox
 {
 	std::string name;
-public:
+	public:
 	explicit fox(std::string n)
 		: name {std::move(n)}
 	{}
@@ -90,11 +90,11 @@ struct animal_voice{
 
 	//turning our call operator to a generic state, to avoid tedious writting
 	template <typename ValType>
-	void operator() (ValType &&d) const
-	{
-		std::forward<ValType>(d).say();
-	}
-	
+		void operator() (ValType &&d) const
+		{
+			std::forward<ValType>(d).say();
+		}
+
 };
 
 int main(){
